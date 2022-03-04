@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // viewport width state
+  const [width, setWidth] = useState(window.innerWidth);
+  // the width where we swap components
+  const breakpoint = 620;
+
+  useEffect(() => {
+    // this event listener updates width state when the screen size changes
+    const handleWindowResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', handleWindowResize);
+
+    // remove the event listener
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
+
+  const MobileComponent = () => <p>mobile component</p>;
+  const DesktopComponent = () => <p>{width}</p>
+
+  return width < breakpoint ? <MobileComponent/> : <DesktopComponent/>;
 }
 
 export default App;
