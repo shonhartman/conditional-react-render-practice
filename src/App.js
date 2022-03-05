@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import DesktopComponent from './components/DesktopComponent';
+import MobileComponent from './components/MobileComponent';
 import './App.css';
 
 function App() {
@@ -16,11 +18,7 @@ function App() {
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
 
-
-  const MobileComponent = () => <p>mobile component</p>;
-  const DesktopComponent = () => <p>{width}</p>
-
-  return width < breakpoint ? <MobileComponent/> : <DesktopComponent/>;
+  return width < breakpoint ? <MobileComponent width={width} /> : <DesktopComponent width={width} />;
 }
 
 export default App;
