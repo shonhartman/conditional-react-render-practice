@@ -8,7 +8,7 @@ function App() {
   // the width where we swap components
   const breakpoint = 620;
 
-  return width < breakpoint ? <MobileComponent width={width} /> : <DesktopComponent width={width} />;
+  return width < breakpoint ? <MobileComponent /> : <DesktopComponent />;
 }
 
 export default App;

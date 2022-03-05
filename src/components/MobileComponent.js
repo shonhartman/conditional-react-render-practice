@@ -1,4 +1,7 @@
-export default function MobileComponent({ width }) {
+import useViewport from "../utility/useViewport";
+
+export default function MobileComponent() {
+  const width = useViewport();
   return (
     <div className="bg-black w-full h-screen flex flex-col justify-center items-center">
       <div className="min-w-0">

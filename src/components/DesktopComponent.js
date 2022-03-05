@@ -1,4 +1,8 @@
-export default function DesktopComponent({ width }) {
+import useViewport from "../utility/useViewport"
+
+export default function DesktopComponent() {
+  const width = useViewport();
+
   return (
     <div className="flex justify-between p-10">
       <div className="min-w-0">
