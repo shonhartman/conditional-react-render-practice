@@ -1,14 +1,13 @@
-import DesktopComponent from './components/DesktopComponent';
-import MobileComponent from './components/MobileComponent';
 import './App.css';
-import useViewport from './utility/useViewport';
+import AnyComponent from './components/AnyComponent';
+import ViewportProvider from './components/ViewPortProvider';
 
 function App() {
-  const width = useViewport();
-  // the width where we swap components
-  const breakpoint = 620;
-
-  return width < breakpoint ? <MobileComponent /> : <DesktopComponent />;
+  return (
+    <ViewportProvider>
+      <AnyComponent />
+    </ViewportProvider>
+  );
 }
 
 export default App;

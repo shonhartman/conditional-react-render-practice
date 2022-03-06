@@ -1,4 +1,4 @@
-import useViewport from "../utility/useViewport"
+import { useViewport } from "./ViewPortProvider";
 
 export default function DesktopComponent() {
   const width = useViewport();
